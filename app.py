@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 import pickle
 
-# model = pickle.load(open('rforest_model.pkl', 'rb'))
 model = pickle.load(open('xgboost_model.pkl', 'rb'))
 
 app = Flask(__name__)
@@ -265,7 +264,6 @@ def prediction():
 
         df = pd.DataFrame.from_dict(data)
 
-        # cols = model.feature_names_in_
         cols = model.get_booster().feature_names
         print(cols)
 
