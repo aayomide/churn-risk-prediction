@@ -1,13 +1,10 @@
 # save this as app.py
 from flask import Flask, escape, request, render_template
 import numpy as np
-import xgboost as xgb
-
+import pandas as pd
 import pickle
-model = pickle.load(open('xgboost_model.pkl', 'rb'))
 
-# model = xgb.Booster()
-# model.load_model("model.txt")
+model = pickle.load(open('rforest_model.pkl', 'rb'))
 
 app = Flask(__name__)
 
@@ -265,19 +262,18 @@ def prediction():
 
         data = {'age':[age], 'days_since_last_login':[last_login], 'avg_time_spent':[avg_time_spent], 'avg_transaction_value':[avg_transaction_value], 'points_in_wallet':[points_in_wallet], 'joining_day':[joining_day], 'joining_month':[joining_month], 'joining_year':[joining_year], 'last_visit_time_hour':[last_visit_time_hour], 'last_visit_time_minutes':[last_visit_time_minutes], 'last_visit_time_seconds':[last_visit_time_seconds], 'gender_M':[gender_M], 'gender_Unknown':[gender_Unknown], 'region_category_Town':[region_category_Town], 'region_category_Village':[region_category_Village], 'membership_category_Gold Membership':[membership_category_Gold], 'membership_category_No Membership':[membership_category_No], 'membership_category_Platinum Membership':[membership_category_Platinum], 'membership_category_Premium Membership':[membership_category_Premium], 'membership_category_Silver Membership':[membership_category_Silver], 'joined_through_referral_No':[joined_through_referral_No], 'joined_through_referral_Yes':[joined_through_referral_Yes], 'preferred_offer_types_Gift Vouchers/Coupons':[preferred_offer_types_Gift_VouchersCoupons], 'preferred_offer_types_Without Offers':[preferred_offer_types_Without_Offers], 'medium_of_operation_Both':[medium_of_operation_Both], 'medium_of_operation_Desktop':[medium_of_operation_Desktop], 'medium_of_operation_Smartphone':[medium_of_operation_Smartphone], 'internet_option_Mobile_Data':[internet_option_Mobile_Data], 'internet_option_Wi-Fi':[internet_option_Wi_Fi], 'used_special_discount_Yes':[used_special_discount_Yes], 'offer_application_preference_Yes':[offer_application_preference_Yes], 'past_complaint_Yes':[past_complaint_Yes], 'feedback_Poor Customer Service':[feedback_Customer], 'feedback_Poor Product Quality':[feedback_Poor_Product_Quality], 'feedback_Poor Website':[feedback_Poor_Website], 'feedback_Products always in Stock':[feedback_Products_always_in_Stock], 'feedback_Quality Customer Care':[feedback_Quality_Customer_Care], 'feedback_Reasonable Price':[feedback_Reasonable_Price], 'feedback_Too many ads':[feedback_Too_many_ads], 'feedback_User Friendly Website':[feedback_User_Friendly_Website]}
 
-        import pandas as pd
         df = pd.DataFrame.from_dict(data)
 
-        cols = model.feature_names
+        cols = model.feature_names_in_
         df = df[cols]
 
         prediction = model.predict(df)
-        # print(prediction)
+        print(prediction)
 
 
 
                 
-        return render_template("prediction.html", prediction_text="Churn Score is {}".format(prediction))        
+        return render_template("prediction.html", prediction_text="The churn score for this customer is {} out of 5".format(prediction[0]))        
 
     else:
         return render_template("prediction.html")
