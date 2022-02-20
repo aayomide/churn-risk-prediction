@@ -269,7 +269,7 @@ def prediction():
 
         df = df[cols]
 
-        prediction = model.predict(df)
+#         prediction = model.predict(df)
         print(prediction)
 
 
