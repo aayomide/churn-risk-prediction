@@ -17,9 +17,16 @@
     <div class="container">
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
             <h1 class="display-4 fw-normal">Prediction</h1>
-            <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this
-                Bootstrap example.</p><br>
-            <h4><b>{{prediction_text}}</b></h4><br>
+            <p class="fs-5 text-muted">Enter customer details and check if you're in danger of losing them!</p><br>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    <i>{{ message }}</i>
+                </div>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
         </div>
         
         <a class="btn btn-primary btn-lg" href="/" role="button">Back</a><br><br>
@@ -38,6 +45,9 @@
                 </div>
                 <div class="col">
                     <input type="text" id="avg_transaction_value" name="avg_transaction_value" class="form-control" placeholder="Average transaction value" aria-label="Average transaction value">
+                </div>
+                <div class="col">
+                    <input type="text" id="avg_frequency_login_days" name="avg_frequency_login_days" class="form-control" placeholder="Average Frequency Login Days" aria-label="Average Frequency Login Days">
                 </div>
             </div><br>
             <div class="row">
@@ -156,7 +166,7 @@
                 </div>
             </div><br>
             <div class="text-center">
-                <button  type="submit" class="btn btn-success">Submit</button>
+                <button  type="submit" class="btn btn-success">Predict</button>
             </div>
         </form><br><br><br><br><br>
 
