@@ -23,9 +23,9 @@ def prediction():
     if request.method == "POST":
         prediction = predict_test(request.form)
         if prediction > 2:
-            flash(f"Churn risk score for this customer is {prediction} out of 5.",'success')
+            flash(f"Churn risk score for this customer is {prediction} out of 5. They are likely to churn!",'warning')
         else:
-            flash(f"Churn risk score for this customer is {prediction} out of 5.",'warning')
+            flash(f"Churn risk score for this customer is {prediction} out of 5. They are likely to remain customers",'success')
 
         return render_template("prediction.html")        
 

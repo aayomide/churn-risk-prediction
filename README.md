@@ -1,7 +1,52 @@
-## Customer Churn Prediction
+# Customer Churn Prediction
+## Problem
+A small-sized startup is keen on reducing its customer churn and has hired you as a Machine Learning engineer for this task. Churn rate is a marketing metric that describes the number of customers who leave a business over a specific time period. Every user is assigned a prediction value that estimates their state of churn at any given time. This value is based on:
+- User demographic information
+- Browsing behavior
+- Historical purchase data among other information
 
-`Task`: A small-sized startup is keen on reducing its customer churn and has hired you as a Machine Learning engineer for this task. As an expert, you are required to build a sophisticated Machine Learning model that predicts the churn score for a website based on multiple features.
+## Task
+As an expert, you are required to build a sophisticated Machine Learning model that predicts the churn score for a website based on multiple features.
 
-`Dataset`: The dataset consists of parameters such as the users' demographic and PII, membership account details, duration and frequency of their visits to the website, reported grievances and feedback, etc.
+## Data description
+The dataset folder contains the following files:
+- train.csv: 36992 x 25
+- test.csv: 19919 x 24
 
-[Live site](https://kustomer-churn-prediction.herokuapp.com/)
+The columns provided in the dataset are as follows:
+
+| Column Name                   | Description                                                                 |
+|-------------------------------|-----------------------------------------------------------------------------|
+| customer_id                   | Represents the unique identification number of a customer                   |
+| Name                          | Represents the name of a customer                                           |
+| age                           | Represents the age of a customer                                            |
+| security_no                   | Represents a unique security number that is used to identify a person       |
+| region_category               | Represents the region that a customer belongs to                            |
+| membership_category           | Represents the category of the membership that a customer is using          |
+| joining_date                  | Represents the date when a customer became a member                         |
+| joined_through_referral       | Represents whether a customer joined using any referral code or ID          |
+| referral_id                   | Represents a referral ID                                                    |
+| preferred_offer_types         | Represents the type of offer that a customer prefers                        |
+| medium_of_operation           | Represents the medium of operation that a customer uses for transactions    |
+| internet_option               | Represents the type of internet service a customer uses                     |
+| last_visit_time               | Represents the last time a customer visited the website                     |
+| days_since_last_login         | Represents the no. of days since a customer last logged into the website     |
+| avg_time_spent                | Represents the average time spent by a customer on the website              |
+| avg_transaction_value         | Represents the average transaction value of a customer                      |
+| avg_frequency_login_days      | Represents the no. of times a customer has logged in to the website          |
+| points_in_wallet              | Represents the points awarded to a customer on each transaction             |
+| used_special_discount         | Represents whether a customer uses special discounts offered                |
+| offer_application_preference  | Represents whether a customer prefers offers                                |
+| past_complaint                | Represents whether a customer has raised any complaints                     |
+| complaint_status              | Represents whether the complaints raised by a customer were resolved        |
+| feedback                      | Represents the feedback provided by a customer                              |
+| churn_risk_score              | Represents the churn risk score that ranges from 1 to 5                     |
+
+
+[Source](https://www.hackerearth.com/problem/machine-learning/predict-the-churn-risk-rate-11-fb7a760d/)
+
+
+---
+
+## Web App
+The predictive model built in this project, was deployed to a web app developed using Python/Flask for the backend and HTML/CSS/Bootstrap for the from end. [Live site](https://kustomer-churn-prediction.herokuapp.com/)
