@@ -46,7 +46,29 @@ The columns provided in the dataset are as follows:
 [Source](https://www.hackerearth.com/problem/machine-learning/predict-the-churn-risk-rate-11-fb7a760d/)
 
 
----
-
 ## Web App
-The predictive model built in this project, was deployed to a web app developed using Python/Flask for the backend and HTML/CSS/Bootstrap for the from end. [Live site](https://kustomer-churn-prediction.herokuapp.com/)
+The predictive model built in this project was deployed to a web app developed using Python/Flask for the backend and HTML/CSS/Bootstrap for the front end. 
+[Live site](https://churn-risk-prediction-1.onrender.com/)
+
+### Built with 
+- Front-end: HTML/CSS, Bootstrap
+- Backend: Python/Flask
+- Deployment: Render
+- Machine Learning Algorithm: XGBoost classifier
+
+
+----
+## Setup
+For this project, having a Python version less than v3.12 on your system is preferable to avoid compatibility issues during dependencies installation. Python 3.10.11 was used in the project. <br>
+Check your Python version by inputting `python --version` in the command-line prompt.
+
+Follow these steps to set up the development environment for the churn prediction project:
+1. Create a Project Directory:
+    - Open your terminal and create a new directory on your local machine called churn_prediction: `mkdir churn_prediction`
+2. Navigate to this new Project Directory: `cd churn_prediction`
+3. Create a Python virtual environment inside the churn_prediction directory: `python -m venv .venv`
+4. Activate the Virtual Environment: `.venv\Scripts\activate`
+5. While still in the churn_prediction directory, clone this project repository into your local: `git clone https://github.com/aayomide/churn-risk-prediction.git`
+6. Navigate to the Cloned Repository: `cd churn-risk-prediction`
+7. Install all required dependencies using pip: `pip install -r requirements.txt`
+8. Start the Web Application. Run the following command to start the Flask web application: `flask run`
