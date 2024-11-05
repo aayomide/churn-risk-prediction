@@ -45,6 +45,8 @@ The columns provided in the dataset are as follows:
 
 [Source](https://www.hackerearth.com/problem/machine-learning/predict-the-churn-risk-rate-11-fb7a760d/)
 
+## Analysis
+[See the document for the analysis done](https://github.com/aayomide/churn-risk-prediction/blob/main/customer%20churn%20prediction.ipynb)
 
 ## Web App
 The predictive model built in this project was deployed to a web app developed using Python/Flask for the backend and HTML/CSS/Bootstrap for the front end. 
